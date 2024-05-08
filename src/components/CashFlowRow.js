@@ -1,8 +1,7 @@
-import { Avatar, LinearProgress, Tab, linearProgressClasses } from "@mui/material";
 import React from "react";
+import { LinearProgress, linearProgressClasses, Chip } from "@mui/material";
 import styled from "styled-components";
 import { IoMdArrowDropdownCircle } from "react-icons/io";
-import { Chip } from "@mui/material";
 
 const Container = styled.div`
     display: flex;
@@ -22,12 +21,6 @@ const Header = styled.div`
     align-items: center;
     gap: 8px;
 `
-
-const Logo = styled(Avatar)`
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-`;
 
 const Title = styled.p`
     margin: 0;

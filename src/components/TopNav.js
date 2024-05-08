@@ -18,8 +18,6 @@ const TopNavContainer = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 50px;
-  height: 50px;
   object-fit: contain;
 `;
 
@@ -66,8 +64,8 @@ const TopNav = () => {
   return (
     <TopNavContainer>
       <div>
-        <Logo src={Logo1} alt="Logo 1" />
-        <Logo src={Logo2} alt="Logo 2" />
+        <Logo src={Logo1} alt="Logo 1" width={ 50 } height={ 50 } />
+        <Logo src={Logo2} alt="Logo 2" width={ 120 } height={ 50 } />
       </div>
       <NavButtonsContainer>
         <NavButton isSelected>Dashboard</NavButton>

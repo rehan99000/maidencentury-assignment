@@ -1,5 +1,5 @@
-import { Avatar, Chip } from "@mui/material";
 import React from "react";
+import { Chip } from "@mui/material";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -58,7 +58,7 @@ const Tag = styled(Chip)`
     font-weight: 600 !important;
     font-size: 16px !important;
     color: #092139 !important;
-    margin-right: 70px;
+    margin-right: 200px;
 `;
 
 const Amount = styled.p`

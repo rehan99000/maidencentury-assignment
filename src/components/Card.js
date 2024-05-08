@@ -68,7 +68,7 @@ const Replacement = styled.div`
   opacity: ${({ hover }) => hover ? 1 : 0};
 `;
 
-const Card = ({ icon, text, largeText }) => {
+const Card = ({ icon, text, largeText, trend, trendSuffix }) => {
   const [hover, setHover] = React.useState(false);
   return (
     <Box>
@@ -76,7 +76,7 @@ const Card = ({ icon, text, largeText }) => {
           {icon}
         </IconWrapper>
         <div style={{ marginTop: '35px' }}></div>
-        <TitleText>{text}</TitleText>
+        <TitleText>{text} {trend} {trendSuffix} </TitleText>
         <div style={{ marginTop: '35px' }}></div>
         <div  onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
           <Original hover={ hover }>

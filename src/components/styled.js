@@ -1,3 +1,4 @@
+import { Chip } from "@mui/material";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -42,4 +43,12 @@ export const Subtitle = styled.p`
     font-weight: 400;
     color: #62666F;
     margin-left: 15px;
+`;
+
+export const Trend = styled(Chip)`
+    border-radius: 20px !important;
+    background-color: ${({bgColor}) => bgColor} !important;
+    height: 18px !important;
+    width: 30px !important;
+    margin-right: 10px;
 `;

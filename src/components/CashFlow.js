@@ -11,6 +11,8 @@ import {
 } from "./styled";
 import { CashFlowRow } from "./CashFlowRow";
 import CashFlowIcon from '../assets/cash-flow.png'
+import MoneyInSelectedIcon from '../assets/money-in-sel.png';
+import MoneyOutSelectedIcon from '../assets/money-out-sel.png';
 import MoneyInIcon from '../assets/money-in.png';
 import MoneyOutIcon from '../assets/money-out.png';
 
@@ -38,6 +40,14 @@ const TabSubTitle = styled.p`
     color: ${({ selected }) => selected ? 'black' : '#606674'};
 `;
 
+const MyTabs = styled(Tabs)`
+    & div {
+        & .MuiTabs-indicator {
+            background-color: black !important;
+        }
+    }
+`
+
 const TabLabel = ({ selected, title, subtitle }) => {
     return (
         <LabelContainer>
@@ -64,16 +74,18 @@ export const CashFlow = () => {
                 </HeaderLeftSection>
                 <HeaderRightSection>See all</HeaderRightSection>
             </Header>
-            <Tabs
+            <MyTabs
                 value={ tab }
                 onChange={ (e, value) => setTab(value) }
+                indicatorColor="secondary"
                 sx={{
                     width: '100%',
                     height: '120px',
+                    borderBottom: '1px solid #E9ECF5'
                 }}
             >
                 <Tab
-                    icon={ <img src={ MoneyInIcon } height={ 60 } width={ 60 } /> }
+                    icon={ <img src={ tab === 0 ? MoneyInSelectedIcon : MoneyInIcon } height={ 60 } width={ 60 } /> }
                     iconPosition="start"
                     label={
                         <TabLabel title='Money In' subtitle='$5,083' selected={ tab === 0 }/>
@@ -85,7 +97,7 @@ export const CashFlow = () => {
                     }}
                 />
                 <Tab
-                    icon={ <img src={ MoneyOutIcon } height={ 60 } width={ 60 } />}
+                    icon={ <img src={ tab === 1 ? MoneyOutSelectedIcon : MoneyOutIcon } height={ 60 } width={ 60 } />}
                     iconPosition="start"
                     label={
                         <TabLabel title='Money Out' subtitle='$485.64' selected={ tab === 1 } />
@@ -96,7 +108,7 @@ export const CashFlow = () => {
                         marginLeft: '20px',
                     }}
                 />
-            </Tabs>
+            </MyTabs>
             {
                 tab === 0 ? (
                     <>

@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'CustomFont';
+  src: url('./assets/fonts/InconsolataLGCmarkup.otf') format('opentype');
+       /* url('./assets/fonts/InconsolataLGCmarkup-Bold.otf') format('opentype'); */
+  font-weight: normal;
+  font-style: normal;
+}
+
 .App {
   position: relative;
   height: 100%;
@@ -24,7 +32,6 @@
   background-color: #FCFCFC;
 }
 
-
 .cards-wrapper {
   display: flex;
   flex-direction: column;
@@ -42,6 +49,7 @@
 .overview-section {
   display: flex;
   align-items: center;
+  margin-top: 10px;
 }
 
 .overview-image {
