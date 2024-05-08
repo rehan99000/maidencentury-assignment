@@ -12,12 +12,18 @@ const Container = styled.div`
     //border-bottom: 1px solid #D4D8E4;
 
     &:hover {
+        & .header {
+            transform: translateX(16px);
+        }
         transition: 0.3s ease-in-out;
-        background-color: #fbfcfe;
-        padding: 12px;
-        height: 77px;
+        background-color: #f6f8fc;
     }
 `;
+
+const Header = styled.div`
+    display: flex;
+    transition: all 0.3s
+`
 
 const Logo = styled.div`
     width: 50px;
@@ -49,7 +55,7 @@ const Date = styled.p`
 const Tag = styled(Chip)`
     border-radius: 2px !important;
     background-color: #F7F8FC !important;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
     font-size: 16px !important;
     color: #092139 !important;
     margin-right: 70px;
@@ -71,13 +77,15 @@ export const TransactionRow = ({
 }) => {
     return (
         <Container>
-            <Logo>
-                { logo }
-            </Logo>
-            <Details>
-                <Title>{ title }</Title>
-                <Date>{ date }</Date>
-            </Details>
+            <Header className='header'>
+                <Logo>
+                    { logo }
+                </Logo>
+                <Details>
+                    <Title>{ title }</Title>
+                    <Date>{ date }</Date>
+                </Details>
+            </Header>
             <Tag label={ tag } size="medium" variant="filled" />
             <Amount isCredit={ amount > 0 }>{ `${amount > 0 ? '+' : '-'}$${Math.abs(amount).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` }</Amount>
         </Container>

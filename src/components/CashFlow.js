@@ -55,18 +55,18 @@ export const CashFlow = () => {
     ]
     const [tab, setTab] = useState(0);
     return (
-        <Container>
+        <Container style={{ gap: '12px' }}>
             <Header>
                 <HeaderLeftSection>
                     <img src={ CashFlowIcon } height={ 35 } width={ 35 } />
-                    <Title>Recent Transactions</Title>
+                    <Title>Cash Flow</Title>
                     <Subtitle>Last 30 days</Subtitle>
                 </HeaderLeftSection>
                 <HeaderRightSection>See all</HeaderRightSection>
             </Header>
             <Tabs
                 value={ tab }
-                onChange={ setTab }
+                onChange={ (e, value) => setTab(value) }
                 sx={{
                     width: '100%',
                     height: '120px',
@@ -79,7 +79,8 @@ export const CashFlow = () => {
                         <TabLabel title='Money In' subtitle='$5,083' selected={ tab === 0 }/>
                     }
                     sx={{
-                        width: '100%',
+                        flex: '1',
+                        justifyContent: 'flex-start',
                         height: '120px',
                     }}
                 />
@@ -90,14 +91,14 @@ export const CashFlow = () => {
                         <TabLabel title='Money Out' subtitle='$485.64' selected={ tab === 1 } />
                     }
                     sx={{
-                        width: '100%',
+                        flex: '1',
                         justifyContent: 'flex-start',
                         marginLeft: '20px',
                     }}
                 />
             </Tabs>
-            {/* {
-                tab === 1 ? (
+            {
+                tab === 0 ? (
                     <>
                         {
                             items.map(item => (
@@ -114,7 +115,7 @@ export const CashFlow = () => {
                         }
                     </>
                 )
-            } */}
+            }
         </Container>
     );
 }

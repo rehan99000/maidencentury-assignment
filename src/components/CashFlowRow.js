@@ -2,23 +2,26 @@ import { Avatar, LinearProgress, Tab, linearProgressClasses } from "@mui/materia
 import React from "react";
 import styled from "styled-components";
 import { IoMdArrowDropdownCircle } from "react-icons/io";
-
+import { Chip } from "@mui/material";
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify content: space-between;
+    gap: 12px;
     padding: 10px;
-    height: 120px;
-    border-bottom: 1px solid #ccc;
-    //border-bottom: 1px solid #D4D8E4;
 `;
 
 const Details = styled.div`
     display: flex;
     align-items: center;
+    justify-content: space-between
 `;
+
+const Header = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 8px;
+`
 
 const Logo = styled(Avatar)`
     width: 50px;
@@ -29,22 +32,35 @@ const Logo = styled(Avatar)`
 const Title = styled.p`
     margin: 0;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 500;
     color: black;
 `;
-
-const Tag = styled(Tab)`
+const Tag = styled(Chip)`
+    border-radius: 2px !important;
+    background-color: #F7F8FC !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    color: #092139 !important;
+    margin-right: 70px;
 `;
 
-const Progress = styled(LinearProgress)(({ theme }) => ({
-    height: 10,
-    borderRadius: 5,
+const Progress = styled(LinearProgress)(({ progressColor }) => ({
+    height: '10px !important',
+    width: '100%',
+    borderRadius: 0,
+    [`&.${linearProgressClasses.colorPrimary}`]: {
+        background: `repeating-linear-gradient(-45deg,#d7d9da 1px,#d7d9da 3px,transparent 1px,transparent 8px)`
+    },
+    [`& .${linearProgressClasses.bar}`]: {
+      borderRadius: 0,
+      backgroundColor: progressColor,
+    },
   }));
-
+  
 const Amount = styled.p`
     margin: 0;
     color: ${p => p.isCredit ? '#346257' : 'black'};
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
 `
 
@@ -57,12 +73,14 @@ export const CashFlowRow = ({
     return (
         <Container>
             <Details>
-                <Logo src={ <IoMdArrowDropdownCircle /> } color={ color } />
-                <Title>{ title }</Title>
-                <Tag title={ percentage } />
-                <Amount>{ amount }</Amount>
+                <Header>
+                    <IoMdArrowDropdownCircle fill={ color } size={ 40 } />
+                    <Title>{ title }</Title>
+                    <Tag label={ `%${percentage}` } size="medium" variant="filled" />
+                </Header>
+                <Amount>{ '$' + amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }</Amount>
             </Details>
-            <Progress variant="determinate" value={ percentage } color={ color } />
+            <Progress variant='determinate' value={ percentage } progressColor={ color } />
         </Container>
     );
 }
