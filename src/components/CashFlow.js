@@ -47,7 +47,14 @@ const MyTabs = styled(Tabs)`
         }
     }
 `
-
+const MyTab = styled(Tab)`
+    transition: 0.2s ease-in-out;
+    &:hover {
+        .money-icon:after {
+            opacity: 1;
+        }
+    }
+`
 const TabLabel = ({ selected, title, subtitle }) => {
     return (
         <LabelContainer>
@@ -84,8 +91,8 @@ export const CashFlow = () => {
                     borderBottom: '1px solid #E9ECF5'
                 }}
             >
-                <Tab
-                    icon={ <img src={ tab === 0 ? MoneyInSelectedIcon : MoneyInIcon } height={ 60 } width={ 60 } alt="money-in-icon" /> }
+                <MyTab
+                    icon={ <div className="money-icon"><img  src={ tab === 0 ? MoneyInSelectedIcon : MoneyInIcon } height={ 60 } width={ 60 } alt="money-in-icon" /></div> }
                     iconPosition="start"
                     label={
                         <TabLabel title='Money In' subtitle='$5,083' selected={ tab === 0 }/>
@@ -96,8 +103,8 @@ export const CashFlow = () => {
                         height: '120px',
                     }}
                 />
-                <Tab
-                    icon={ <img src={ tab === 1 ? MoneyOutSelectedIcon : MoneyOutIcon } height={ 60 } width={ 60 } alt="money-out-icon" />}
+                <MyTab
+                    icon={ <div className="money-icon"><img src={ tab === 1 ? MoneyOutSelectedIcon : MoneyOutIcon } height={ 60 } width={ 60 } alt="money-out-icon" /></div>}
                     iconPosition="start"
                     label={
                         <TabLabel title='Money Out' subtitle='$485.64' selected={ tab === 1 } />
@@ -114,7 +121,7 @@ export const CashFlow = () => {
                     <>
                         {
                             items.map(item => (
-                                <CashFlowRow {...item} />
+                                <CashFlowRow key={item.title} {...item} />
                             ))
                         }
                     </>
@@ -122,7 +129,7 @@ export const CashFlow = () => {
                     <>
                         {
                             items.map(item => (
-                                <CashFlowRow {...item} />
+                                <CashFlowRow key={item.title} {...item} />
                             ))
                         }
                     </>
