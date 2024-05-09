@@ -26,7 +26,7 @@ export const RecentTransactions = () => {
         <Container>
             <Header>
                 <HeaderLeftSection>
-                    <img src={ RecentTransactionIcon } height={ 35 } width={ 35 } />
+                    <img src={ RecentTransactionIcon } height={ 35 } width={ 35 } alt="recentTransactions" />
                     <Title>Recent Transactions</Title>
                     <Subtitle>Last 5 activity</Subtitle>
                 </HeaderLeftSection>

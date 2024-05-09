@@ -21,7 +21,7 @@ function App() {
         <TitleSection />
         <div className="cards-wrapper">
           <div className='overview-section'>
-            <img className='overview-image' src={ OverviewIcon } />
+            <img className='overview-image' src={ OverviewIcon } alt='overview' />
             <Typography
               gutterBottom
               variant="h6"
