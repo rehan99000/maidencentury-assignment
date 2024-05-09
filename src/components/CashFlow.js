@@ -68,7 +68,7 @@ export const CashFlow = () => {
         <Container style={{ gap: '12px' }}>
             <Header>
                 <HeaderLeftSection>
-                    <img src={ CashFlowIcon } height={ 35 } width={ 35 } />
+                    <img src={ CashFlowIcon } height={ 35 } width={ 35 } alt="cashflow" />
                     <Title>Cash Flow</Title>
                     <Subtitle>Last 30 days</Subtitle>
                 </HeaderLeftSection>
@@ -85,7 +85,7 @@ export const CashFlow = () => {
                 }}
             >
                 <Tab
-                    icon={ <img src={ tab === 0 ? MoneyInSelectedIcon : MoneyInIcon } height={ 60 } width={ 60 } /> }
+                    icon={ <img src={ tab === 0 ? MoneyInSelectedIcon : MoneyInIcon } height={ 60 } width={ 60 } alt="money-in-icon" /> }
                     iconPosition="start"
                     label={
                         <TabLabel title='Money In' subtitle='$5,083' selected={ tab === 0 }/>
@@ -97,7 +97,7 @@ export const CashFlow = () => {
                     }}
                 />
                 <Tab
-                    icon={ <img src={ tab === 1 ? MoneyOutSelectedIcon : MoneyOutIcon } height={ 60 } width={ 60 } />}
+                    icon={ <img src={ tab === 1 ? MoneyOutSelectedIcon : MoneyOutIcon } height={ 60 } width={ 60 } alt="money-out-icon" />}
                     iconPosition="start"
                     label={
                         <TabLabel title='Money Out' subtitle='$485.64' selected={ tab === 1 } />
