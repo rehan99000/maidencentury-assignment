@@ -22,14 +22,14 @@ function App() {
         <div className="cards-wrapper">
           <div className='overview-section'>
             <img className='overview-image' src={ OverviewIcon } alt='overview' />
-            <Typography
-              gutterBottom
-              variant="h6"
-              sx={{
-                color: 'white',
-                marginTop: '5px',
-                fontSize: '20px',
-              }}>Overview</Typography>
+              <Typography
+                gutterBottom
+                variant="h6"
+                sx={{
+                  color: 'white',
+                  marginTop: '5px',
+                  fontSize: '20px',
+                }}>Overview</Typography>
               <Typography
                 gutterBottom
                 variant="h6"
@@ -55,7 +55,7 @@ function App() {
               trend={ <Trend label={ <PiArrowDownRightFill size={ 15 } color='white' /> } bgColor='#DB122C' size='small'/> }
               trendSuffix='-2.1%'
             />
-            <Card text="Business Savings" largeText="$1,623" icon={ <GoStack size='100%' /> } />
+            <Card text="Business Savings" largeText="$1,623" icon={ <GoStack size='100%' /> } isLast/>
           </div>
       </div>
       <BottomSection />

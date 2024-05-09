@@ -10,7 +10,7 @@ const Box = styled.div`
   min-width: ${({ expanded }) => expanded ? '60%' : '300px'};
   padding: ${({ expanded }) => expanded ? '20px 0px 20px 30px' : '20px 30px'};
   background-color: white;
-  margin-right: 40px;
+  margin-right: ${({ isLast }) => isLast ? 0 : '40px'};
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   transition: all  0.5s ease-in-out;
   display: flex;
@@ -124,11 +124,11 @@ const ChartContainer = styled.div`
 `;
 
 
-const Card = ({ icon, text, largeText, trend, trendSuffix }) => {
+const Card = ({ icon, text, largeText, trend, trendSuffix, isLast = false }) => {
   const [hover, setHover] = React.useState(false);
   const [expanded, setExpanded] = React.useState(false);
   return (
-    <Box expanded={expanded}>
+    <Box expanded={expanded} isLast={ isLast }>
     <div style={{flex: 1}}>
         <IconWrapper hover={ hover || expanded }>
           {icon}
