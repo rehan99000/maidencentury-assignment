@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Button, IconButton as MIconButton } from '@mui/material';
-import { MoreHoriz } from '@mui/icons-material'
+import { BsGraphUp } from "react-icons/bs";
 
 const Box = styled.div`
   width: 390px;
@@ -107,7 +107,7 @@ const Card = ({ icon, text, largeText, trend, trendSuffix }) => {
           <Replacement style={{ top: hover ? '0%' : '100%', opacity: hover ? '100%' : '0%' }}>
             <div style={{ display: 'flex', gap: '12px' }}>
               <IconButton> View Account Details</IconButton>
-              <RoundIcon><MoreHoriz /></RoundIcon>
+              <RoundIcon><BsGraphUp /></RoundIcon>
             </div>
           </Replacement>
         </div>
